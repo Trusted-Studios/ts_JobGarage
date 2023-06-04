@@ -20,7 +20,7 @@ Spawn = {}
 function Spawn:Vehicle(vehicle, data, coords)
     local ped <const> = PlayerPedId()
     local model = GetHashKey(vehicle)
-    local x, y, z, h = table.unpack(coords or vec4(GetEntityCoords(ped), GetEntityHeading(ped))) ---@todo: check if this shit works 
+    local x, y, z, h = table.unpack(coords or vec4(GetEntityCoords(ped), GetEntityHeading(ped)))
     
     repeat Wait(100) RequestModel(model) until HasModelLoaded(model) 
     

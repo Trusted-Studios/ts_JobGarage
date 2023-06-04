@@ -33,7 +33,7 @@ end)
 -- ════════════════════════════════════════════════════════════════════════════════════ --
 
 function ESX:HasJob(job)
-    return job and self.Shared?.PlayerData?.job?.name == job or true 
+    return not job and true or self.Shared?.PlayerData?.job?.name == job
 end
 
 function ESX:HasGrade(grade)

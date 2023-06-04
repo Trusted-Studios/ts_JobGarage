@@ -29,7 +29,7 @@ end
 
 function Menu:Main()
     RageUI.IsVisible(self.mainMenu, function()
-        for vehicle, data in pairs(self.Data) do 
+        for vehicle, data in pairs(self.Data.Vehicles) do 
             if not Bridge:HasGrade(data.grade or 0) then 
                 goto continue
             end 

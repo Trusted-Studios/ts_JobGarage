@@ -15,9 +15,13 @@ JobGarage = {}
 
 function JobGarage:init()
     for garage, data in pairs(Config.Garages) do 
+        if not Bridge:HasJob(data.Job) then 
+            goto continue
+        end   
         if data.Blip then 
             Game.AddBlip(data.Coords, data.Blip.id, data.Blip.scale, data.Blip.colour, false, data.Label, true)
         end     
+        ::continue::
     end
 end 
 
@@ -30,7 +34,7 @@ function JobGarage:Main()
         Game.Target(ped, data.Coords, 4, 2, true, function()
             Visual.ShowHelp(Config.Text["open_menu"], true)
             if IsControlJustPressed(0, 38) then 
-                Menu:Open(data.Vehicles)
+                Menu:Open(data)
             end 
         end, function()
             RageUI.CloseAll()
@@ -40,6 +44,7 @@ function JobGarage:Main()
 end
 
 Async.Task(function()
+    JobGarage:init()
     while true do 
         Wait(0)
         JobGarage:Main()

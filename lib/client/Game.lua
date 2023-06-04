@@ -15,6 +15,14 @@ print("^6[CLIENT - DEBUG] ^0: "..filename()..".lua gestartet");
 ---@class Game 
 Game = {}
 
+
+function Game.AddMarker(x, y, z)
+    if type(x) ~= "number" then
+        x, y, z = table.unpack(x)
+    end
+    DrawMarker(1, x, y, z - 1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.6, 0.6, 0.5, 0, 191, 255, 100, false, true, 2, false, nil, nil, false)
+end
+
 --- returns if the wanted distance between the ped and a target coord is reached or not.
 ---@param ped number
 ---@param targetCoords vector3

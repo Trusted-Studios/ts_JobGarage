@@ -28,7 +28,7 @@ QBCore.Shared = exports["es_extended"]:getSharedObject()
 
 function QBCore:HasJob(job)
     local PlayerData = self.Shared?.Functions?.GetPlayerData()
-    return job and PlayerData?.job?.name == job or true  
+    return not job and true or PlayerData?.job?.name == job  
 end
 
 function QBCore:HasGrade(grade)
