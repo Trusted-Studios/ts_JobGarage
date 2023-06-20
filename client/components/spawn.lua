@@ -35,8 +35,8 @@ function Spawn:Vehicle(vehicle, data, coords)
         local id = NetworkGetNetworkIdFromEntity(car)
         SetNetworkIdCanMigrate(id, true)
         
-        for i = 0, 12, 1 do 
-            if DoesExtraExist(car, i) then 
+         for i = 1, 12, 1 do 
+            if not DoesExtraExist(car, i) then 
                 goto skip 
             end
             SetVehicleExtra(car, i, 1)
@@ -47,14 +47,15 @@ function Spawn:Vehicle(vehicle, data, coords)
             return 
         end 
         
-        for i = 0, 12, 1 do 
+        for i = 1, 12, 1 do 
             if not data.defaultExtras[i] then
-                return 
+                goto skip 
             end
             if not DoesExtraExist(car, i) then 
-                return 
+                goto skip 
             end
             SetVehicleExtra(car, i, 0)
+            ::skip::
         end  
         
     end)
