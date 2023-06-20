@@ -25,7 +25,7 @@ function Spawn:Vehicle(vehicle, data, coords)
     repeat Wait(100) RequestModel(model) until HasModelLoaded(model) 
     
     Async.ScreenFade(1000, function()
-        car = CreateVehicle(model, x, y, z, h, true, false)
+        local car = CreateVehicle(model, x, y, z, h, true, false)
         
         SetPedIntoVehicle(ped, car, -1)
         SetVehicleOnGroundProperly(car)
@@ -37,12 +37,13 @@ function Spawn:Vehicle(vehicle, data, coords)
         
         for i = 0, 12, 1 do 
             if DoesExtraExist(car, i) then 
-                return 
+                goto skip 
             end
             SetVehicleExtra(car, i, 1)
+            ::skip::
         end
         
-        if data.defaultExtras then 
+        if not data.defaultExtras then 
             return 
         end 
         

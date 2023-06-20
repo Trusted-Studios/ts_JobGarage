@@ -18,7 +18,10 @@ print("^6[CLIENT - DEBUG] ^0: "..filename()..".lua gestartet");
 
 QBCore = {}
 
-QBCore.Shared = exports["es_extended"]:getSharedObject()
+
+RegisterNetEvent('QBCore:Client:UpdateObject', function()
+    QBCore.Shared = exports['qb-core']:GetCoreObject()
+end)
 
 -- ════════════════════════════════════════════════════════════════════════════════════ --
 -- Code
