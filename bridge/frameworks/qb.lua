@@ -1,4 +1,4 @@
-if not Config.Framework == 'QBCore' then 
+if Config.Framework ~= 'QBCore' then 
     return 
 end
 
@@ -36,5 +36,5 @@ end
 
 function QBCore:HasGrade(grade)
     local PlayerData = self.Shared?.Functions?.GetPlayerData()
-    return PlayerData?.job?.grade?.level >= grade 
+    return (PlayerData?.job?.grade?.level or -1) >= grade 
 end
