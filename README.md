@@ -7,10 +7,8 @@
 
 ---
 
-# FiveM Job Garage Script
+# FiveM Job Garage Script | [Documentation](https://docs.trusted-studios.eu/fivem/basic-job_garage)
 
-A simple Lua script for FiveM that enables players to gat a garage for a job and park/unpark their vehicles.
+The FiveM Basic Job Garage is a straightforward Lua script designed for FiveM that empowers players to efficiently manage a dedicated garage for their job. With this script, players can easily park and unpark their vehicles, ensuring convenient access and organization.
 
 ![image](https://media.discordapp.net/attachments/1115378133424668682/1115378133806354613/Screenshot_918.png?width=1246&height=701)
-
-# [Documentation](https://docs.trusted-studios.eu/fivem/basic-job_garage)
